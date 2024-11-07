@@ -1,0 +1,335 @@
+<ContentPage
+    x:Class="HandyCrew.Views.ProvDashboard"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:ur="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+    Title="ProvDashboard">
+
+
+
+    <Grid RowDefinitions="auto,*,auto">
+
+
+        <VerticalStackLayout
+            Grid.Row="0"
+            BackgroundColor="#399918"
+            HeightRequest="90">
+
+
+            <Image
+                Grid.Row="0"
+                Margin="-20,-70,0,0"
+                HeightRequest="230"
+                HorizontalOptions="Start"
+                Source="handycrew3.png"
+                WidthRequest="250" />
+
+
+
+
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1" BackgroundColor="White">
+            <VerticalStackLayout BackgroundColor="White">
+                <Label
+                    Margin="15,20,0,0"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="My Posts"
+                    TextColor="Black" />
+
+
+
+                <!--<CollectionView
+                    x:Name="ListStudents"
+                    Grid.Row="3"
+                    Margin="0,0,0,0"
+                    HeightRequest="560">
+
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="1" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <ContentView Margin="0,0,0,0" Padding="0">
+                                    <SwipeView>
+
+                                        <SwipeView.RightItems>
+                                            <SwipeItems Mode="Reveal">
+
+                                                <SwipeItemView
+                                                x:Name="itemEditStudents"
+                                                Margin="5"
+                                                Invoked="ItemEditStudents_OnInvoked">
+                                                    <StackLayout Margin="5">
+                                                        <Frame
+                                                        Margin="0,40,0,0"
+                                                        BackgroundColor="white"
+                                                        BorderColor="Transparent"
+                                                        CornerRadius="50"
+                                                        Opacity=".70">
+
+                                                            <StackLayout
+                                                            HorizontalOptions="CenterAndExpand"
+                                                            Orientation="Vertical"
+                                                            VerticalOptions="CenterAndExpand">
+
+
+
+                                                                <Image
+                                                                Aspect="AspectFit"
+                                                                HeightRequest="20"
+                                                                Opacity="1"
+                                                                Source="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-3/24/file-edit-alt-256.png"
+                                                                WidthRequest="20" />
+                                                                <Label
+                                                                FontSize="10"
+                                                                HorizontalOptions="CenterAndExpand"
+                                                                Text="Edit"
+                                                                TextColor="DarkBlue"
+                                                                VerticalOptions="CenterAndExpand" />
+                                                            </StackLayout>
+
+                                                        </Frame>
+                                                    </StackLayout>
+                                                </SwipeItemView>
+
+                                                <SwipeItemView
+                                                x:Name="itemDeleteStudents"
+                                                Margin="5"
+                                                Invoked="ItemDeleteStudents_OnInvoked">
+                                                    <StackLayout Margin="5">
+                                                        <Frame
+                                                        Margin="0,40,0,0"
+                                                        BackgroundColor="PaleVioletRed"
+                                                        BorderColor="Transparent"
+                                                        CornerRadius="40"
+                                                        Opacity=".70">
+
+                                                            <StackLayout
+                                                            HorizontalOptions="CenterAndExpand"
+                                                            Orientation="Vertical"
+                                                            VerticalOptions="CenterAndExpand">
+                                                                <Image
+                                                                Aspect="AspectFit"
+                                                                HeightRequest="20"
+                                                                Opacity="1"
+                                                                Source="https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_delete-256.png"
+                                                                WidthRequest="20" />
+                                                                <Label
+                                                                FontSize="10"
+                                                                HorizontalOptions="CenterAndExpand"
+                                                                Text="Delete"
+                                                                TextColor="Black"
+                                                                VerticalOptions="CenterAndExpand" />
+                                                            </StackLayout>
+                                                        </Frame>
+
+                                                    </StackLayout>
+                                                </SwipeItemView>
+
+                                            </SwipeItems>
+
+
+                                        </SwipeView.RightItems>
+
+                                        <Border
+                                        Margin="0,3,0,0"
+                                        Padding="0"
+                                        BackgroundColor="White"
+                                        HeightRequest="160"
+                                        Opacity="1"
+                                        Stroke="white"
+                                        StrokeShape="RoundRectangle 20"
+                                        StrokeThickness="1"
+                                        WidthRequest="330">
+
+                                            <Grid ColumnDefinitions="auto,auto">
+                                                <Border
+                                                Grid.Column="0"
+                                                Margin="5,0,5,0"
+                                                HeightRequest="90"
+                                                StrokeShape="RoundRectangle 50"
+                                                VerticalOptions="Center"
+                                                WidthRequest="90">
+
+                                                    <Border.Shadow>
+                                                        <Shadow
+                                                        Brush="Gray"
+                                                        Opacity=".8"
+                                                        Offset="10,10" />
+                                                    </Border.Shadow>
+                                                    <Image Aspect="Fill" Source="{Binding Image}" />
+                                                </Border>
+
+
+                                                <Grid Grid.Column="1" ColumnDefinitions="Auto, auto">
+                                                    <Line Grid.Column="0" WidthRequest="5" />
+                                                    <StackLayout
+                                                    Grid.Column="1"
+                                                    Margin="15"
+                                                    BackgroundColor="Transparent"
+                                                    HorizontalOptions="Fill"
+                                                    Orientation="Horizontal">
+
+
+
+                                                        <Grid
+                                                        ColumnDefinitions="Auto,5, auto"
+                                                        RowDefinitions="Auto, Auto, Auto,Auto,Auto,Auto "
+                                                        RowSpacing="0">
+
+
+
+                                                            <Label
+                                                            Grid.Row="0"
+                                                            Grid.Column="0"
+                                                            FontSize="13"
+                                                            HorizontalOptions="Start"
+                                                            LineBreakMode="TailTruncation"
+                                                            Text="Student ID:"
+                                                            TextColor="Black"
+                                                            VerticalOptions="Center" />
+                                                            <Label
+                                                            Grid.Row="0"
+                                                            Grid.Column="2"
+                                                            FontAttributes="Bold"
+                                                            FontSize="13"
+                                                            LineBreakMode="TailTruncation"
+                                                            Text="{Binding ID}"
+                                                            TextColor="Black" />
+
+                                                            <Label
+                                                            Grid.Row="1"
+                                                            Grid.Column="0"
+                                                            FontSize="13"
+                                                            HorizontalOptions="Start"
+                                                            Text="First Name:"
+                                                            TextColor="Black"
+                                                            VerticalOptions="CenterAndExpand" />
+                                                            <Label
+                                                            Grid.Row="1"
+                                                            Grid.Column="2"
+                                                            FontAttributes="Bold"
+                                                            FontSize="13"
+                                                            LineBreakMode="TailTruncation"
+                                                            Text="{Binding FirstName}"
+                                                            TextColor="Black" />
+                                                            <Label
+                                                            Grid.Row="2"
+                                                            Grid.Column="0"
+                                                            FontSize="13"
+                                                            HorizontalOptions="Start"
+                                                            Text=" Lastname:"
+                                                            TextColor="Black"
+                                                            VerticalOptions="CenterAndExpand" />
+                                                            <Label
+                                                            Grid.Row="2"
+                                                            Grid.Column="2"
+                                                            FontAttributes="Bold"
+                                                            FontSize="13"
+                                                            LineBreakMode="TailTruncation"
+                                                            Text="{Binding LastName}"
+                                                            TextColor="Black" />
+                                                            <Label
+                                                            Grid.Row="3"
+                                                            Grid.Column="0"
+                                                            FontSize="13"
+                                                            HorizontalOptions="Start"
+                                                            Text=" Gender:"
+                                                            TextColor="Black"
+                                                            VerticalOptions="CenterAndExpand" />
+                                                            <Label
+                                                            Grid.Row="3"
+                                                            Grid.Column="2"
+                                                            FontAttributes="Bold"
+                                                            FontSize="13"
+                                                            LineBreakMode="TailTruncation"
+                                                            Text="{Binding Gender}"
+                                                            TextColor="Black" />
+
+                                                            <Label
+                                                            Grid.Row="4"
+                                                            Grid.Column="0"
+                                                            FontSize="13"
+                                                            HorizontalOptions="Start"
+                                                            Text=" Address:"
+                                                            TextColor="Black"
+                                                            VerticalOptions="CenterAndExpand" />
+                                                            <Label
+                                                            Grid.Row="4"
+                                                            Grid.Column="2"
+                                                            FontAttributes="Bold"
+                                                            FontSize="13"
+                                                            LineBreakMode="TailTruncation"
+                                                            Text="{Binding Address}"
+                                                            TextColor="Black" />
+
+                                                            <Label
+                                                            Grid.Row="5"
+                                                            Grid.Column="0"
+                                                            FontSize="13"
+                                                            HorizontalOptions="Start"
+                                                            Text=" Contact Number:"
+                                                            TextColor="Black"
+                                                            VerticalOptions="CenterAndExpand" />
+                                                            <Label
+                                                            Grid.Row="5"
+                                                            Grid.Column="2"
+                                                            FontAttributes="Bold"
+                                                            FontSize="13"
+                                                            LineBreakMode="TailTruncation"
+                                                            Text="{Binding ContactNumber}"
+                                                            TextColor="Black" />
+
+                                                        </Grid>
+
+                                                    </StackLayout>
+                                                </Grid>
+
+                                            </Grid>
+                                        </Border>
+
+                                    </SwipeView>
+
+                                </ContentView>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>-->
+
+
+            </VerticalStackLayout>
+
+
+
+        </ScrollView>
+
+        <StackLayout Grid.Row="3" BackgroundColor="Green">
+
+
+            <ImageButton
+                Grid.Row="1"
+                Margin="0,0,0,0"
+                Clicked="ImageButton_OnClicked"
+                HeightRequest="50"
+                HorizontalOptions="Center"
+                Source="add.png"
+                WidthRequest="50" />
+
+        </StackLayout>
+
+
+
+
+    </Grid>
+
+
+
+
+
+
+
+
+</ContentPage>

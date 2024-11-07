@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HandyCrew.Views.SignUp"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ur="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+    Title="SignUp"
+    BackgroundImageSource="loginbg.png">
+    <Grid ColumnDefinitions="*" RowDefinitions="*,auto,*">
+
+
+
+
+        <VerticalStackLayout
+            Grid.Row="1"
+            Margin="20,-50,20,0"
+            Spacing="15">
+
+            <VerticalStackLayout>
+
+                <Grid />
+
+
+            </VerticalStackLayout>
+            <Frame
+                BackgroundColor="White"
+                BorderColor="Transparent"
+                Opacity="1"
+                Padding="0,0,0,-0"
+                >
+                <VerticalStackLayout>
+                    <Label
+                        Margin="0,0,0,5"
+                        FontAttributes="Bold"
+                        FontSize="25"
+                        HorizontalOptions="Start"
+                        Text="SIGN UP"
+                        TextColor="Black" />
+
+
+                    <Grid ColumnDefinitions="*" RowDefinitions="*,*">
+
+                        <Label
+                            Grid.Row="0"
+                            Margin="0,0,0,5"
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            HorizontalTextAlignment="Start"
+                            Text="First Name"
+                            TextColor="Black" />
+
+                        <!--<Entry
+                  x:Name="txtfname"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  BackgroundColor="#D0E7D2"
+                  Placeholder="First Name"
+                  PlaceholderColor="Grey"
+                  TextColor="Black" />-->
+
+                        <ur:TextField
+                            x:Name="txtfname"
+                            Title="Enter First Name"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="0,0,0,5"
+                            AccentColor="DarkGreen"
+                            Icon="https://cdn1.iconfinder.com/data/icons/okku-office/32/Okku_Office_Expand-07-512.png"
+                            TextColor="Black"
+                            TitleColor="Black" />
+
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*" RowDefinitions="*,*">
+
+                        <Label
+                            Grid.Row="0"
+                            Margin="0,0,0,5"
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            HorizontalTextAlignment="Start"
+                            Text="Last Name"
+                            TextColor="Black" />
+
+                        <!--<Entry
+                  x:Name="txtlname"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  BackgroundColor="#D0E7D2"
+                  Placeholder="Last Name"
+                  PlaceholderColor="Grey"
+                  TextColor="Black" />-->
+
+                        <ur:TextField
+                            x:Name="txtlname"
+                            Title="Enter Last Name"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="0,0,0,5"
+                            AccentColor="DarkGreen"
+                            Icon="https://cdn1.iconfinder.com/data/icons/okku-office/32/Okku_Office_Expand-07-512.png"
+                            TextColor="Black"
+                            TitleColor="Black" />
+
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*" RowDefinitions="*,*">
+
+                        <Label
+                            Grid.Row="0"
+                            Margin="0,0,0,5"
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            HorizontalTextAlignment="Start"
+                            Text="Homeowner or Service Provider"
+                            TextColor="Black" />
+
+                        <!--<Entry
+x:Name="pass"
+Grid.Row="2"
+Grid.Column="1"
+BackgroundColor="#D0E7D2"
+Placeholder="Password"
+PlaceholderColor="Grey"
+TextColor="Black" />-->
+
+                        <!--  <ur:TextField
+                            x:Name="pass"
+                            Title="Enter Password"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="0,0,0,5"
+                            AccentColor="DarkGreen"
+                            Icon="https://cdn4.iconfinder.com/data/icons/internet-security-flat-2/32/Internet_Security_key_lock_password_door_safe-64.png"
+                            TextColor="Black"
+                            TitleColor="Black" />-->
+                        <ur:PickerField
+                            x:Name="Acc"
+                            Title="Pick an option "
+                            Margin="0,15,0,0"
+                            ItemsSource="{Binding Accs}"
+                            TextColor="Black"
+                            TitleColor="Black" />
+
+
+                    </Grid>
+
+
+                    <Grid ColumnDefinitions="*" RowDefinitions="*,*">
+
+                        <Label
+                            Grid.Row="0"
+                            Margin="0,0,0,5"
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            HorizontalTextAlignment="Start"
+                            Text="Username"
+                            TextColor="Black" />
+
+                        <!--<Entry
+                  x:Name="Username"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  BackgroundColor="#D0E7D2"
+                  Placeholder="Username"
+                  PlaceholderColor="Grey"
+                  TextColor="Black" />-->
+
+                        <ur:TextField
+                            x:Name="Username"
+                            Title="Enter Username"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="0,0,0,5"
+                            AccentColor="DarkGreen"
+                            Icon="https://cdn4.iconfinder.com/data/icons/business-and-e-commerce/64/Employee_man-512.png"
+                            TextColor="Black"
+                            TitleColor="Black" />
+
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*" RowDefinitions="*,*">
+
+                        <Label
+                            Grid.Row="0"
+                            Margin="0,0,0,5"
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            HorizontalTextAlignment="Start"
+                            Text="Password"
+                            TextColor="Black" />
+
+                        <!--<Entry
+                  x:Name="pass"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  BackgroundColor="#D0E7D2"
+                  Placeholder="Password"
+                  PlaceholderColor="Grey"
+                  TextColor="Black" />-->
+
+                        <ur:TextField
+                            x:Name="pass"
+                            Title="Enter Password"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="0,0,0,5"
+                            AccentColor="DarkGreen"
+                            Icon="https://cdn4.iconfinder.com/data/icons/internet-security-flat-2/32/Internet_Security_key_lock_password_door_safe-64.png"
+                            TextColor="Black"
+                            TitleColor="Black" />
+                    </Grid>
+
+
+
+
+
+                    <Button
+                        x:Name="btnAdd"
+                        Margin="0,0,0,0"
+                        BackgroundColor="DarkGreen"
+                        Clicked="BtnAdd_OnClicked"
+                        Text="Register"
+                        TextColor="White" />
+
+
+
+                    <Button
+                        Margin="0,0,0,0"
+                        BackgroundColor="Transparent"
+                        BorderColor="Transparent"
+                        Clicked="Button1_OnClicked"
+                        IsEnabled="true"
+                        StyleClass="TextButton"
+                        Text="Already have An Account"
+                        TextColor="Black" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+
+
+
+
+        </VerticalStackLayout>
+
+
+
+
+
+
+
+    </Grid>
+</ContentPage>

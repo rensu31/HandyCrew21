@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HandyCrew.Views.UserDashboard"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="UserDashboard"
+    BackgroundColor="White">
+    <ScrollView>
+        <Grid RowDefinitions="auto,auto,auto">
+            <VerticalStackLayout
+                Grid.Row="0"
+                BackgroundColor="#399918"
+                HeightRequest="170">
+
+                <Border
+                    Margin="0,5,0,0"
+                    StrokeShape="RoundRectangle 10,10,10,10"
+                    StrokeThickness="1"
+                    WidthRequest="330">
+                    <SearchBar
+                        x:Name="txtstring"
+                        BackgroundColor="#F5EDED"
+                        Opacity="0.8"
+                        Placeholder="Search"
+                        PlaceholderColor="Black"
+                        TextColor="Black" />
+                </Border>
+
+                <Label
+                    Margin="5,50,0,0"
+                    FontAttributes="Bold"
+                    FontSize="30"
+                    HorizontalOptions="Start"
+                    Text="Hello, Welcome!"
+                    TextColor="White" />
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout
+                Grid.Row="1"
+                BackgroundColor="Beige"
+                VerticalOptions="Start">
+
+                <HorizontalStackLayout
+                    Margin="0,7,0,-90"
+                    HeightRequest="130"
+                    HorizontalOptions="Start">
+                    <Label
+                        Margin="5,0,0,0"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text="Categories"
+                        TextColor="Black" />
+
+                    <Label
+                        Margin="200,0,0,0"
+                        FontSize="15"
+                        Text="See All"
+                        TextColor="DarkGreen" />
+
+
+
+                </HorizontalStackLayout>
+
+                <ScrollView>
+                    <HorizontalStackLayout Margin="8,0,0,10" Spacing="8">
+
+                        <StackLayout Margin="0,0,0,0">
+                            <Grid RowDefinitions="auto,auto">
+                                <Frame BorderColor="Green" />
+                                <Image
+                                    Grid.Row="0"
+                                    HeightRequest="50"
+                                    Source="https://cdn1.iconfinder.com/data/icons/carbon-design-system-vol-3/32/clean-256.png"
+                                    WidthRequest="80" />
+
+                                <Label
+                                    HorizontalOptions="Center"
+                                    Grid.Row="1"
+                                    FontAttributes="Bold"
+                                    Text="Cleaning"
+                                    TextColor="Black" />
+
+                            </Grid>
+
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,0">
+                            <Grid RowDefinitions="auto,auto">
+                                <Frame BorderColor="Green" />
+                                <Image
+                                    Grid.Row="0"
+                                    HeightRequest="50"
+                                    Source="https://cdn2.iconfinder.com/data/icons/ac-cleaning-glyph/74/Untitled-39-07-256.png"
+                                    WidthRequest="80" />
+
+                                <Label
+                                    HorizontalOptions="Center"
+                                    Grid.Row="1"
+                                    FontAttributes="Bold"
+                                    LineBreakMode="TailTruncation"
+                                    MaximumWidthRequest="50"
+                                    Text="AC Cleaning"
+                                    TextColor="Black" />
+
+                            </Grid>
+
+                        </StackLayout>
+                        <StackLayout Margin="0,0,0,0">
+                            <Grid RowDefinitions="auto,auto">
+                                <Frame BorderColor="Green" />
+                                <Image
+                                    Grid.Row="0"
+                                    HeightRequest="50"
+                                    Source="https://cdn2.iconfinder.com/data/icons/handyman-fixing-repair-house/262/serviceman-repairman-technician-007-256.png"
+                                    WidthRequest="80" />
+
+                                <Label
+                                    HorizontalOptions="Center"
+                                    Grid.Row="1"
+                                    FontAttributes="Bold"
+                                    Text="Plumbing"
+                                    TextColor="Black" />
+
+                            </Grid>
+
+                        </StackLayout>
+
+                        <StackLayout Margin="0,0,0,0">
+                            <Grid RowDefinitions="auto,auto">
+                                <Frame BorderColor="Green" />
+                                <Image
+                                    Grid.Row="0"
+                                    HeightRequest="50"
+                                    Source="https://cdn1.iconfinder.com/data/icons/landscaping-and-horticulture/262/landscaping-015-256.png"
+                                    WidthRequest="80" />
+
+                                <Label
+                                    HorizontalOptions="Center"
+                                    Grid.Row="1"
+                                    FontAttributes="Bold"
+                                    Text="Landscape"
+                                    TextColor="Black" />
+
+                            </Grid>
+
+                        </StackLayout>
+
+                        <StackLayout Margin="0,0,0,0">
+                            <Grid RowDefinitions="auto,auto">
+                                <Frame BorderColor="Green" />
+                                <Image
+                                    Grid.Row="0"
+                                    HeightRequest="50"
+                                    Source="https://cdn1.iconfinder.com/data/icons/carbon-design-system-vol-3/32/clean-256.png"
+                                    WidthRequest="80" />
+
+                                <Label
+                                    Grid.Row="1"
+                                    FontAttributes="Bold"
+                                    Text="Cleaning"
+                                    TextColor="Black" />
+
+                            </Grid>
+
+                        </StackLayout>
+
+                        <StackLayout Margin="0,0,0,0">
+                            <Grid RowDefinitions="auto,auto">
+                                <Frame BorderColor="Green" />
+                                <Image
+                                    Grid.Row="0"
+                                    HeightRequest="50"
+                                    Source="https://cdn1.iconfinder.com/data/icons/carbon-design-system-vol-3/32/clean-256.png"
+                                    WidthRequest="80" />
+
+                                <Label
+                                    Grid.Row="1"
+                                    FontAttributes="Bold"
+                                    Text="Cleaning"
+                                    TextColor="Black" />
+
+                            </Grid>
+
+                        </StackLayout>
+
+
+
+
+                    </HorizontalStackLayout>
+                </ScrollView>
+
+
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout Grid.Row="2">
+               
+
+            </VerticalStackLayout>
+
+
+
+
+
+
+
+        </Grid>
+
+    </ScrollView>
+</ContentPage>

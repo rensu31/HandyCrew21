@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HandyCrew.Views.chooseLogin"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ur="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+    Title="chooseLogin"
+    BackgroundImageSource="loginbg.png">
+    <VerticalStackLayout>
+        <Grid>
+
+
+            <Grid ColumnDefinitions="*" RowDefinitions="*,*,*">
+
+
+
+
+                <!--<skia:SKLottieView
+       IsAnimationEnabled="True"
+       RepeatCount="100"
+       RepeatMode="Reverse"
+       Source="login.json" />-->
+
+
+
+                <Image
+                    Margin="0,0,0,-40"
+                    HeightRequest="300"
+                    IsAnimationPlaying="True"
+                    Source="handycrew2.png" />
+
+                <VerticalStackLayout
+                    Grid.Row="1"
+                    Margin="20,0,20,0"
+                    Spacing="15">
+
+                    <VerticalStackLayout>
+
+                        <Grid>
+
+
+
+
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="25"
+                                HorizontalOptions="Start"
+                                Text="SIGN IN"
+                                TextColor="Black" />
+
+
+                        </Grid>
+
+
+
+
+                    </VerticalStackLayout>
+
+
+                    <VerticalStackLayout>
+
+                        <Button
+                            Margin="0,0,0,0"
+                            Clicked="Button_OnClicked"
+                            Text="Login as Homeowner"
+                            TextColor="White">
+
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="1,0">
+                                    <GradientStop Offset="0" Color="#6A9AB0" />
+                                    <GradientStop Offset="1" Color="#0D9276" />
+                                </LinearGradientBrush>
+
+                            </Button.Background>
+
+
+                        </Button>
+
+
+
+
+                    </VerticalStackLayout>
+
+
+                    <VerticalStackLayout>
+
+                        <Button
+                            Margin="0,20,0,0"
+                            Clicked="Button_OnClicked1"
+                            Text="Login as Home Service Provider"
+                            TextColor="White">
+
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="1,0">
+                                    <GradientStop Offset="0" Color="#6A9AB0" />
+                                    <GradientStop Offset="1" Color="#0D9276" />
+                                </LinearGradientBrush>
+
+                            </Button.Background>
+
+
+                        </Button>
+
+
+                    </VerticalStackLayout>
+
+
+
+
+
+
+
+
+
+
+
+                </VerticalStackLayout>
+
+
+
+
+
+
+
+            </Grid>
+
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

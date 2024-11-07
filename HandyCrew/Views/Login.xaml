@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HandyCrew.Views.Login"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ur="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+    Title="Login"
+    BackgroundImageSource="loginbg.png">
+    <Grid>
+
+
+        <Grid ColumnDefinitions="*" RowDefinitions="*,auto,*">
+
+
+
+
+            <!--<skia:SKLottieView
+          IsAnimationEnabled="True"
+          RepeatCount="100"
+          RepeatMode="Reverse"
+          Source="login.json" />-->
+
+
+
+            <Image
+                Margin="0,0,0,-40"
+                HeightRequest="300"
+                IsAnimationPlaying="True"
+                Source="handycrew2.png" />
+
+            <VerticalStackLayout
+                Grid.Row="1"
+                Margin="20,0,20,-100"
+                Spacing="15">
+
+                <VerticalStackLayout>
+
+                    <Grid>
+
+
+
+
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="25"
+                            HorizontalOptions="Start"
+                            Text="SIGN IN"
+                            TextColor="Black" />
+
+
+                    </Grid>
+
+
+
+
+                </VerticalStackLayout>
+
+
+
+
+
+                <Grid ColumnDefinitions="*" RowDefinitions="*,*">
+
+                    <Label
+                        Grid.Row="0"
+                        Margin="0,0,0,5"
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        HorizontalTextAlignment="Start"
+                        Text="Username"
+                        TextColor="Black" />
+
+                    <!--<Entry
+                  x:Name="Username"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  BackgroundColor="#D0E7D2"
+                  Placeholder="Enter Username"
+                  PlaceholderColor="Grey"
+                  TextColor="Black" />-->
+
+                    <ur:TextField
+                        x:Name="Username"
+                        Title="Enter Username"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        AccentColor="DarkGreen"
+                        Icon="https://cdn2.iconfinder.com/data/icons/buno-ui-interface/32/__account_profile_user-256.png"
+                        TextColor="Black"
+                        TitleColor="Black" />
+
+
+                </Grid>
+
+                <Grid ColumnDefinitions="*" RowDefinitions="*,*,*">
+
+                    <Label
+                        Grid.Row="0"
+                        Margin="0,0,0,5"
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        HorizontalTextAlignment="Start"
+                        Text="Password"
+                        TextColor="Black" />
+
+                    <!--<Entry
+                  x:Name="Password"
+                  Grid.Row="2"
+                  Grid.Column="1"
+                  BackgroundColor="#D0E7D2"
+                  IsPassword="True"
+                  Placeholder="Password"
+                  PlaceholderColor="Grey"
+                  TextColor="Black" />-->
+
+                    <ur:TextField
+                        x:Name="Password"
+                        Title="Enter Password"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        AccentColor="DarkGreen"
+                        Icon="https://cdn1.iconfinder.com/data/icons/unicons-line-vol-4/24/key-skeleton-512.png"
+                        IsPassword="True"
+                        TextColor="Black"
+                        TitleColor="Black">
+                        <ur:TextField.Attachments>
+                            <ur:TextFieldPasswordShowHideAttachment />
+
+                        </ur:TextField.Attachments>
+                    </ur:TextField>
+
+                    <HorizontalStackLayout Grid.Row="3">
+                        <ur:CheckBox
+                            Margin="0,5,0,0"
+                            BorderColor="Black"
+                            Text="Remember me"
+                            TextColor="Black"
+                            Color="DarkGreen" />
+
+                        <Button
+                            Margin="30,0,0,-10"
+                            BackgroundColor="Transparent"
+                            BorderColor="Transparent"
+                            Clicked="Button_OnClicked"
+                            IsEnabled="true"
+                            StyleClass="TextButton"
+                            Text="Dont have an account?"
+                            TextColor="Black" />
+
+
+
+
+                    </HorizontalStackLayout>
+
+
+
+                </Grid>
+
+
+
+
+                <Button
+                    Margin="0,0,0,0"
+                    Clicked="Button_OnClicked1"
+                    Text="Sign In"
+                    TextColor="White">
+
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="1,0">
+                            <GradientStop Offset="0" Color="#789461" />
+                            <GradientStop Offset="1" Color="#0D9276" />
+                        </LinearGradientBrush>
+
+                    </Button.Background>
+
+
+                </Button>
+
+
+
+
+
+
+            </VerticalStackLayout>
+
+
+
+
+
+
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

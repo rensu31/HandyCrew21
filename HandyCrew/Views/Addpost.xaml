@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HandyCrew.Views.Addpost"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:ur="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+    Title="Addpost">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20"
+            Spacing="8"
+            VerticalOptions="CenterAndExpand">
+            <Label
+                Margin="0,0,0,10"
+                FontAttributes="Bold"
+                FontSize="35"
+                Text="Student Registration"
+                TextColor="DarkGreen" />
+
+            <Frame Opacity=".80">
+
+
+                <VerticalStackLayout>
+                    <HorizontalStackLayout HorizontalOptions="Center">
+                        <Border HorizontalOptions="Center" StrokeShape="RoundRectangle 10">
+
+
+                            <Image
+                                x:Name="mainimage"
+                                BackgroundColor="Transparent"
+                                HeightRequest="100"
+                                Opacity="1"
+                                WidthRequest="100" />
+
+                        </Border>
+
+
+                        <Button
+                            x:Name="submit"
+                            Margin="10,0,0,-40"
+                            BorderColor="Black"
+                            Clicked="Submit_OnClicked"
+                            FontSize="10"
+                            HeightRequest="40"
+                            StyleClass="Button"
+                            Text="Browse"
+                            WidthRequest="70" />
+
+
+
+                    </HorizontalStackLayout>
+
+
+                    <ur:TextField
+                        x:Name="flename"
+                        Title="Background Picture"
+                        Margin="0,0,0,5"
+                        AccentColor="DarkGreen"
+                        Icon="https://cdn1.iconfinder.com/data/icons/okku-office/32/Okku_Office_Expand-07-256.png"
+                        TextColor="Black"
+                        TitleColor="Black" />
+
+
+
+
+                    <ur:TextField
+                        x:Name="txtid"
+                        Title="Title Post"
+                        Margin="0,0,0,5"
+                        AccentColor="DarkGreen"
+                        Icon="https://cdn1.iconfinder.com/data/icons/okku-office/32/Okku_Office_Expand-07-256.png"
+                        TextColor="Black"
+                        TitleColor="Black" />
+
+
+                    <ur:MultiplePickerField Title="Categories">
+                        <material:MultiplePickerField.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Computer</x:String>
+                                <x:String>Aircon Cleaning Cleaning</x:String>
+                                <x:String>Plumbing</x:String>
+                                <x:String>Landscape</x:String>
+                                <x:String>Cleaning</x:String>
+                                <x:String>Technician</x:String>
+                            </x:Array>
+                        </material:MultiplePickerField.ItemsSource>
+                    </ur:MultiplePickerField>
+
+
+
+
+
+                    <ur:EditorField
+                        x:Name="txtcnum"
+                        Title="Enter Contact Number"
+                        Margin="0,0,0,5"
+                        AccentColor="DarkGreen"
+                        Icon="https://cdn0.iconfinder.com/data/icons/simpline-mix/64/simpline_49-512.png"
+                        TextColor="Black"
+                        TitleColor="Black" />
+
+
+
+                </VerticalStackLayout>
+
+
+
+            </Frame>
+
+
+            <!--<Button
+        x:Name="btnAdd"
+        Clicked="BtnAdd_Clicked"
+        Text="Add"
+        WidthRequest="300">
+        <Button.Shadow>
+            <Shadow
+                Brush="black"
+                Opacity="0.5"
+                Radius="10"
+                Offset="0,10" />
+        </Button.Shadow>
+
+    </Button>-->
+
+
+            <Button
+                x:Name="btnAdd"
+                Clicked="BtnAdd_OnClicked"
+                Text="Add"
+                TextColor="White">
+
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Offset="0" Color="#789461" />
+                        <GradientStop Offset="1" Color="#0D9276" />
+                    </LinearGradientBrush>
+
+                </Button.Background>
+
+
+
+
+            </Button>
+            <!--<Button
+             x:Name="btnclose"
+             Clicked="BtnClose_OnClicked"
+             Text="Cancel"
+             TextColor="White">
+
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="1,0">
+                        <GradientStop Offset="0" Color="#789461" />
+                        <GradientStop Offset="1" Color="#0D9276" />
+                    </LinearGradientBrush>
+
+                </Button.Background>
+
+
+
+
+            </Button>-->
+
+
+
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
