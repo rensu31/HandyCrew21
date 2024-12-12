@@ -17,7 +17,7 @@ namespace HandyCrew.Views;
 public partial class Addpopup : Popup
 {
 
-    Posts _posts = new();
+    posts _posts = new();
 
     CancellationTokenSource _cancellationTokenSource = new();
     public ObservableCollection<string> Items { get; set; } = new ObservableCollection<string>();
@@ -76,11 +76,51 @@ private async void Submit_OnClicked(object? sender, EventArgs e)
     private async void BtnAdd_OnClicked(object? sender, EventArgs e)
     {   
 
-        var flename = "test";
+        var flename = Fullname;
        var selecteditem = Categories.SelectedItem as string;
 
-    
-     await _posts._AddPost(txtpost.Text, txtdesc.Text, selecteditem, _mainimgResult, flename);
+       if (string.IsNullOrEmpty(txtpost.Text))
+       {
+           await Application.Current.MainPage.DisplayAlert("Data Validation", "Please enter Title Post", "Got It");
+           return;
+       }
+
+       if (string.IsNullOrEmpty(txtdesc.Text))
+       {
+           await Application.Current.MainPage.DisplayAlert("Data Validation", "Please enter Description", "Got It");
+           return;
+       }
+
+       if (string.IsNullOrEmpty(selecteditem))
+       {
+           await Application.Current.MainPage.DisplayAlert("Data Validation", "Please Select Category", "Got It");
+           return;
+       }
+
+       if (string.IsNullOrEmpty(flename))
+       {
+           await Application.Current.MainPage.DisplayAlert("Data Validation", "File name Error", "Got It");
+           return;
+       }
+
+     
+
+await _posts._AddPost(txtpost.Text,
+    txtdesc.Text,
+    selecteditem,
+    _mainimgResult,
+    flename);
+
+     var toastMessage = "Post has been successfully added!";
+     var toastDuration = TimeSpan.FromSeconds(4); // Duration for the toast display
+
+     // Create and show the toast
+     var toast = Toast.Make(toastMessage, ToastDuration.Short);
+     await toast.Show();
+
+     txtpost.Text = string.Empty;
+     txtdesc.Text = string.Empty;
+Close();
 
     }
 

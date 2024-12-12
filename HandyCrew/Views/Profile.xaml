@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HandyCrew.Views.Profile"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Profile"
+    BackgroundColor="White">
+
+    <Grid RowDefinitions="250,auto">
+        <VerticalStackLayout
+            Grid.Row="0"
+            Padding="30"
+            BackgroundColor="DarkGreen"
+            Spacing="5">
+            <VerticalStackLayout
+                Margin="0,100,0,0"
+                Padding="0"
+                HorizontalOptions="Start">
+                <HorizontalStackLayout Margin="0,2,0,0" HorizontalOptions="Start">
+                    <Frame
+                        Margin="-20,-10,-90,60"
+                        BackgroundColor="White"
+                        BorderColor="Black"
+                        CornerRadius="45"
+                        HeightRequest="80"
+                        HorizontalOptions="Start"
+                        IsClippedToBounds="True"
+                        WidthRequest="80">
+                        <Image
+                            Aspect="AspectFill"
+                            HeightRequest="45"
+                            HorizontalOptions="Start"
+                            Source="profile2.png" />
+
+                    </Frame>
+                    <Button
+                        Margin="0,70,-10,0"
+                        BackgroundColor="White"
+                        HeightRequest="45"
+                        HorizontalOptions="Start"
+                        ImageSource="camera_change2.png"
+                        VerticalOptions="Start"
+                        WidthRequest="2" />
+
+
+
+                    <Label
+                        Margin="70,50,0,0"
+                        FontSize="20"
+                        HorizontalOptions="Start"
+                        Text="Username: Lawrence3131"
+                        TextColor="White"
+                        VerticalOptions="Center" />
+
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+        <VerticalStackLayout
+            Grid.Row="1"
+            Padding="30"
+            BackgroundColor="White"
+            HeightRequest="600">
+            <Label
+                Margin="10,10,0,0"
+                FontSize="18"
+                HeightRequest="40"
+                Text="Handy Crew"
+                TextColor="Black" />
+            <BoxView
+                Margin="0,10,0,0"
+                BackgroundColor="Black"
+                HeightRequest="2" />
+
+
+            <HorizontalStackLayout>
+                <Label
+                    Margin="10,5,0,0"
+                    FontSize="16"
+                    HeightRequest="30"
+                    Text="Informations"
+                    TextColor="Black" />
+
+
+                <Button
+                    Margin="250,0,0,0"
+                    BackgroundColor="Transparent"
+                    FontAttributes="Bold"
+                    HorizontalOptions="End"
+                    Text="Edit"
+                    TextColor="Green" />
+
+
+
+
+            </HorizontalStackLayout>
+            <Label
+                Margin="10,5,0,0"
+                FontSize="16"
+                HeightRequest="30"
+                Text="Name"
+                TextColor="Black" />
+
+
+            <Label
+                Margin="10,5,0,0"
+                FontSize="16"
+                HeightRequest="30"
+                Text="Age"
+                TextColor="Black" />
+
+            <Label
+                Margin="10,5,0,0"
+                FontSize="16"
+                HeightRequest="30"
+                Text="Address"
+                TextColor="Black" />
+
+
+            <Label
+                Margin="10,30,0,0"
+                FontSize="18"
+                HeightRequest="40"
+                Text="Settings"
+                TextColor="Black" />
+            <BoxView
+                Margin="0,0,0,0"
+                BackgroundColor="Black"
+                HeightRequest="2" />
+
+
+            <Button
+                Margin="10,5,0,0"
+                BackgroundColor="Green"
+                FontSize="16"
+                HeightRequest="40"
+                Text="Log out"
+                TextColor="White" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

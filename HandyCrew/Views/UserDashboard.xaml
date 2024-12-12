@@ -5,6 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="UserDashboard"
     BackgroundColor="White">
+
+
     <ScrollView>
         <Grid RowDefinitions="auto,auto,auto">
             <VerticalStackLayout
@@ -75,9 +77,9 @@
                                     WidthRequest="80" />
 
                                 <Label
-                                    HorizontalOptions="Center"
                                     Grid.Row="1"
                                     FontAttributes="Bold"
+                                    HorizontalOptions="Center"
                                     Text="Cleaning"
                                     TextColor="Black" />
 
@@ -94,9 +96,9 @@
                                     WidthRequest="80" />
 
                                 <Label
-                                    HorizontalOptions="Center"
                                     Grid.Row="1"
                                     FontAttributes="Bold"
+                                    HorizontalOptions="Center"
                                     LineBreakMode="TailTruncation"
                                     MaximumWidthRequest="50"
                                     Text="AC Cleaning"
@@ -115,9 +117,9 @@
                                     WidthRequest="80" />
 
                                 <Label
-                                    HorizontalOptions="Center"
                                     Grid.Row="1"
                                     FontAttributes="Bold"
+                                    HorizontalOptions="Center"
                                     Text="Plumbing"
                                     TextColor="Black" />
 
@@ -135,9 +137,9 @@
                                     WidthRequest="80" />
 
                                 <Label
-                                    HorizontalOptions="Center"
                                     Grid.Row="1"
                                     FontAttributes="Bold"
+                                    HorizontalOptions="Center"
                                     Text="Landscape"
                                     TextColor="Black" />
 
@@ -194,7 +196,123 @@
 
 
             <VerticalStackLayout Grid.Row="2">
-               
+                <CollectionView
+                    x:Name="ListPosts"
+                    Grid.Row="3"
+                    Margin="0,0,0,0"
+                    EmptyView="No Post Available"
+                    HeightRequest="560"
+                    ItemsSource="{Binding Posts}"
+                    SelectionChanged="OnPostSelected"
+                    SelectionMode="Single">
+
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <ContentView Margin="0,0,0,0" Padding="0">
+                                <SwipeView>
+
+
+                                    <Border
+                                        Margin="0,3,0,0"
+                                        Padding="0"
+                                        BackgroundColor="White"
+                                        HeightRequest="100"
+                                        Opacity="1"
+                                        Stroke="black"
+                                        StrokeShape="RoundRectangle 20"
+                                        StrokeThickness="1"
+                                        WidthRequest="330">
+
+                                        <Grid ColumnDefinitions="auto,auto">
+                                            <Border
+                                                Grid.Column="0"
+                                                Margin="5,0,5,0"
+                                                HeightRequest="70"
+                                                StrokeShape="RoundRectangle 50"
+                                                VerticalOptions="Center"
+                                                WidthRequest="70">
+
+                                                <Border.Shadow>
+                                                    <Shadow
+                                                        Brush="Gray"
+                                                        Opacity=".8"
+                                                        Offset="10,10" />
+                                                </Border.Shadow>
+                                                <Image Aspect="Fill" Source="{Binding Image}" />
+                                            </Border>
+
+
+                                            <Grid Grid.Column="1" ColumnDefinitions="Auto, auto">
+                                                <Line Grid.Column="0" WidthRequest="5" />
+                                                <StackLayout
+                                                    Grid.Column="1"
+                                                    Margin="15"
+                                                    BackgroundColor="Transparent"
+                                                    HorizontalOptions="Fill"
+                                                    Orientation="Horizontal">
+
+
+
+                                                    <Grid
+                                                        ColumnDefinitions="Auto,5, auto"
+                                                        RowDefinitions="Auto, Auto, Auto,Auto,Auto,Auto "
+                                                        RowSpacing="0">
+
+
+
+                                                        <Label
+                                                            Grid.Row="0"
+                                                            Grid.Column="0"
+                                                            FontSize="13"
+                                                            HorizontalOptions="Start"
+                                                            LineBreakMode="TailTruncation"
+                                                            Text="Business Name"
+                                                            TextColor="Black"
+                                                            VerticalOptions="Center" />
+                                                        <Label
+                                                            Grid.Row="0"
+                                                            Grid.Column="2"
+                                                            FontAttributes="Bold"
+                                                            FontSize="13"
+                                                            LineBreakMode="TailTruncation"
+                                                            Text="{Binding TitlePost}"
+                                                            TextColor="Black" />
+
+                                                        <Label
+                                                            Grid.Row="1"
+                                                            Grid.Column="0"
+                                                            FontSize="13"
+                                                            HorizontalOptions="Start"
+                                                            Text="Description"
+                                                            TextColor="Black"
+                                                            VerticalOptions="CenterAndExpand" />
+                                                        <Label
+                                                            Grid.Row="1"
+                                                            Grid.Column="2"
+                                                            FontAttributes="Bold"
+                                                            FontSize="13"
+                                                            LineBreakMode="TailTruncation"
+                                                            Text="{Binding Description}"
+                                                            TextColor="Black" />
+
+
+                                                    </Grid>
+
+                                                </StackLayout>
+                                            </Grid>
+
+                                        </Grid>
+                                    </Border>
+
+                                </SwipeView>
+
+                            </ContentView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
             </VerticalStackLayout>
 

@@ -21,6 +21,12 @@ namespace HandyCrew.Models
         public string selectedaccs { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public string Address { get; set; }
+        public string Image { get; set; }
+        public string ImageProf { get; set; }
+
+        public string Userss { get; set; }
+        public string Pass { get; set; }
 
 
 
@@ -38,22 +44,44 @@ namespace HandyCrew.Models
 
             };
 
-            
 
+          
             if (selectedaccs == "Homeowner")
             {
                 await client.Child("Users").PostAsync(users);
+                GlobalVariables.Selectedacc = selectedaccs; 
                 return true;
+
+
+
             }
-            else
+            if (selectedaccs == "Service Provider")
             {
                 await client.Child("Prov").PostAsync(users);
+                GlobalVariables.Selectedacc = selectedaccs;
                 return true;
+              
+
             }
 
+            return false;
+
+        }
 
 
 
+        public async Task<string> GetSignUserByFirstNameAndLastName(string Username)
+        {
+            var users = await client.Child("Prov").OnceAsync<Users>();
+            var userWithKey = users.FirstOrDefault(u => u.Object.Username.Equals(Username, StringComparison.OrdinalIgnoreCase));
+            return userWithKey?.Key;
+        }
+
+        public async Task<string> GetSignUserByFirstNameAndLastName1(string Username)
+        {
+            var users = await client.Child("User").OnceAsync<Users>();
+            var userWithKey = users.FirstOrDefault(u => u.Object.Username.Equals(Username, StringComparison.OrdinalIgnoreCase));
+            return userWithKey?.Key;
         }
 
         public async Task<bool> _GetUserprov(string _Username, string _Password)
@@ -93,7 +121,7 @@ namespace HandyCrew.Models
                         a.Object.Username == _Username && a.Object.Password == _Password);
                 if (evaluateUsername != null)
                 {
-                    GlobalVariables.email = Username;
+                   
                     return true;
                 }
                 else
@@ -134,5 +162,66 @@ namespace HandyCrew.Models
             }
 
         }
+
+        public async Task<string> UploadProfImage(Stream img, string filename)
+        {
+            try
+            {
+                //var image = await storage
+                //    .Child($"Images/PostImages/{filename}")
+                //    .PutAsync(img);
+                var image = await storage.Child($"Images/Profiles/{filename}").PutAsync(img);
+                return image;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error uploading image: {e.Message}");
+
+                return "false";
+            }
+
+
+        }
+
+        public async Task<bool> _AddProf(String address, FileResult mainimg, string flename)
+        {
+            var idprof = GlobalVariables.email;
+            var selected = GlobalVariables.Selectedacc;
+            var _mainimg = await UploadProfImage(await mainimg.OpenReadAsync(), $"{flename}_mainimg.png");
+            var users = new Users()
+            {
+
+                Address = address,
+                ImageProf = _mainimg
+
+
+            };
+
+
+
+            if (selected == "Homeowner")
+            {
+                await client.Child($"Users/{idprof}").PatchAsync(users);
+                return true;
+
+
+
+
+            }
+            if (selected == "Service Provider")
+            {
+                await client.Child($"Prov/{idprof}").PatchAsync(users);
+                return true;
+
+            }
+
+
+
+            return false;
+
+        }
+
+
+
     }
 }

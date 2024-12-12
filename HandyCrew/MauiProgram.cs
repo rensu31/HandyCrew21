@@ -1,7 +1,10 @@
 ﻿
 using CommunityToolkit.Maui;
+using HandyCrew.Models;
+using HandyCrew.Services;
 using Microsoft.Extensions.Logging;
 using Mopups.Hosting;
+using Xamarin.Essentials;
 using UraniumUI;
 
 namespace HandyCrew
@@ -17,6 +20,7 @@ namespace HandyCrew
                 .UseUraniumUIMaterial()
                 .ConfigureMopups()
                 .UseMauiCommunityToolkit()
+                
 
                 .ConfigureFonts(fonts =>
                 {
@@ -24,8 +28,11 @@ namespace HandyCrew
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<LocationSyncService>();
+            builder.Services.AddHttpClient<LocationHQService>();
             builder.Services.AddMopupsDialogs();
             builder.Services.AddCommunityToolkitDialogs();
+           
 
 
 #if DEBUG
@@ -33,6 +40,9 @@ namespace HandyCrew
 #endif
 
             return builder.Build();
+
+
+
         }
     }
 }

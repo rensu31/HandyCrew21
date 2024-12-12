@@ -4,12 +4,21 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:HandyCrew"
-    Shell.FlyoutBehavior="Disabled"
-    Title="HandyCrew">
+    xmlns:views="using:HandyCrew.Views"
+    Title="HandyCrew"
+    Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <ShellContent
+            Title="Students"
+            ContentTemplate="{DataTemplate views:UserDashboard}"
+            Icon="pr" />
+        <ShellContent
+            Title="Course"
+            ContentTemplate="{DataTemplate views:Profile}"
+            Icon="cr" />
+
+
+    </TabBar>
 
 </Shell>

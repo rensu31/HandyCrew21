@@ -1,15 +1,24 @@
-﻿using HandyCrew.Views;
+﻿using HandyCrew.Models;
+using HandyCrew.Models.ViewModels;
+using HandyCrew.Services;
+using HandyCrew.Views;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace HandyCrew
 {
     public partial class App : Application
     {
         public static FileResult _mainimgResult;
-        public App()
+        public static string UserkeyUser, fullNameuSER, key;
+        public App(IServiceProvider serviceProvider)
         {
             InitializeComponent();
 
-            MainPage = new chooseLogin();
+            var locationSyncService = serviceProvider.GetRequiredService<LocationSyncService>();
+            var locationHQService = serviceProvider.GetRequiredService<LocationHQService>();
+            var mainPageViewModel = new MainpageViewModel(locationHQService);
+
+            MainPage = new AppShell();
         }
     }
 }

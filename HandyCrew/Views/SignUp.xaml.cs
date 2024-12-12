@@ -2,6 +2,10 @@ using System.Collections.ObjectModel;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;
 using HandyCrew.Models;
+using Firebase.Database;
+using static HandyCrew.Includes.GlobalVariables;
+using Firebase.Database.Query;
+using HandyCrew.Includes;
 using Application = Microsoft.Maui.Controls.Application;
 
 namespace HandyCrew.Views;
@@ -51,7 +55,7 @@ public partial class SignUp : ContentPage
         var selectedAcc = Acc.SelectedItem.ToString();
 
 
-
+        string SignUID = string.Empty;
 
 
 
@@ -60,14 +64,37 @@ public partial class SignUp : ContentPage
         if (b)
         {
             await _users._SignUp(txtfname.Text, txtlname.Text,$"{selectedAcc}", Username.Text, pass.Text);
-            Application.Current!.MainPage = new chooseLogin();
+
+
+
+            Application.Current!.MainPage = new AddProfileLocation();
+
+            if (selectedAcc == "Homeowner")
+            {
+                SignUID = await _users.GetSignUserByFirstNameAndLastName1(Username.Text);
+            }
+
+            if (selectedAcc == "Service Provider")
+            {
+                SignUID = await _users.GetSignUserByFirstNameAndLastName(Username.Text);
+            }
+
+
+      
+
+           
+            GlobalVariables.email = SignUID;
+
+            await DisplayAlert("Test", GlobalVariables.email, "Okay");
+
 
         }
 
         if (!b)
         {
 
-            await DisplayAlert("Username Already Exist", "The Username you have entered is already in the records please try again!", "Okay");
+            await DisplayAlert("Username Already Exist", "" +
+                                                         "The Username you have entered is already in the records please try again!", "Okay");
             return;
         }
 
@@ -79,4 +106,7 @@ public partial class SignUp : ContentPage
         return;
 
     }
+
+  
+
 }

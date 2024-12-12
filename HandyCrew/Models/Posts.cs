@@ -9,11 +9,19 @@ using Firebase.Database.Query;
 using static HandyCrew.App;
 using static HandyCrew.Includes.GlobalVariables;
 using HandyCrew.Includes;
+using HandyCrew.Views;
+using StackExchange.Redis;
+
 
 namespace HandyCrew.Models
 {
-     class Posts
+     class posts
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Username { get; set; }
+        public string SelectedAccs { get; set; }
+        public List<string> Postss { get; set; }
 
         public string Email { get; set; }
         public string TitlePost { get; set; }
@@ -69,7 +77,7 @@ namespace HandyCrew.Models
             var _mainimg = await UploadImage(await mainimg.OpenReadAsync(), $"{flename}_mainimg.png");
             var provemail = GlobalVariables.email;
            
-            var Post = new Posts()
+            var Post = new posts()
             {
                 Email = provemail,
                 TitlePost = titlepost,
@@ -78,15 +86,64 @@ namespace HandyCrew.Models
               Image = _mainimg
             };
             
-            await client.Child("Posts").PostAsync(Post);
+            await client.Child($"Prov/{email}/Posts").PostAsync(Post);
             return true;
 
 
         }
 
 
-      
+        //public async Task<List<posts>> GetServiceProvidersWithPosts()
+        //{
+
+        //    return (await client
+        //            .Child("Prov")
+        //            .OnceAsync<posts>()).Select(item => new posts()
+        //            {
+        //            FirstName = item.Object.FirstName,
+        //            LastName = item.Object.LastName
 
 
+        //        }).ToList();
+
+        //}
+
+
+
+
+        public async Task<List<ServiceProvider>> GetServiceProvidersWithPosts()
+        {
+            var serviceProviders = (await client.Child("Prov").OnceAsync<ServiceProvider>())
+                .Select(item => new ServiceProvider
+                {
+                    FirstName = item.Object.FirstName,
+                    LastName = item.Object.LastName,
+                    Username = item.Object.Username,
+                    Posts = item.Object.Posts // This will now be a dictionary
+                }).ToList();
+
+            return serviceProviders;
+        }
+
+
+        public class Post
+        {
+            public string TitlePost { get; set; }
+            public string Description { get; set; }
+            public string Image { get; set; }
+        }
+
+        public class ServiceProvider
+        {
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string Username { get; set; }
+            public Dictionary<string, Post> Posts { get; set; } // Use a dictionary to match Firebase structure
+
+            public ServiceProvider()
+            {
+                Posts = new Dictionary<string, Post>(); // Initialize the Posts dictionary
+            }
+        }
     }
 }

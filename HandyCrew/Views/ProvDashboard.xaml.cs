@@ -9,6 +9,12 @@ public partial class ProvDashboard : ContentPage
 		InitializeComponent();
 	}
 
+    public ProvDashboard(string userkey, string userFullname) : this()
+    {
+        InitializeComponent();
+        App.UserkeyUser = userkey;
+        App.fullNameuSER = userFullname;
+    }
     private async void ImageButton_OnClicked(object? sender, EventArgs e)
     {
         var popup = new Addpopup();

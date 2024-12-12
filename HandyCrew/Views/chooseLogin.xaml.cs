@@ -1,3 +1,4 @@
+using Xamarin.Essentials;
 namespace HandyCrew.Views;
 
 public partial class chooseLogin : ContentPage
@@ -6,6 +7,26 @@ public partial class chooseLogin : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        if (IsConnected())
+        {
+            // Optionally, you can perform actions when connected
+        }
+        else
+        {
+            await DisplayAlert("Connection Error", "Please check your internet connection and try again.", "OK");
+        }
+
+    }
+
+    private bool IsConnected()
+    {
+        var current = Microsoft.Maui.Networking.Connectivity.NetworkAccess;
+        return current == Microsoft.Maui.Networking.NetworkAccess.Internet;
+    }
 
     private async void Button_OnClicked(object? sender, EventArgs e)
     {

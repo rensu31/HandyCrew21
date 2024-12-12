@@ -1,9 +1,14 @@
+using Firebase.Database;
 using HandyCrew.Models;
+using static HandyCrew.Includes.GlobalVariables;
+using Firebase.Database.Query;
+using HandyCrew.Includes;
 
 namespace HandyCrew.Views;
 
 public partial class Login : ContentPage
 {
+
     Users _users= new();
 	public Login()
 	{
@@ -24,28 +29,45 @@ public partial class Login : ContentPage
             return;
         }
 
-        bool a;
-        a = await _users._GetUser(Username.Text, Password.Text);
-
-
-        if (a)
+        try
         {
+            bool a;
+            a = await _users._GetUser(Username.Text, Password.Text);
+            if (!a)
+            {
+                await DisplayAlert("Access Denied", "Please try again!", "Okay");
+                return;
+            }
 
-            await DisplayAlert("Access Granted", "Logging in",
-                "Okay");
-            Application.Current!.MainPage = new UserDashboard();
+            string iD = await GetUserByFirstNameAndLastName(Username.Text);
+            if (string.IsNullOrEmpty(iD))
+            {
+                await DisplayAlert("Error", "User  not found 1", "Okay");
+                return;
+            }
 
+            var user = await client.Child("Users").Child(iD).OnceSingleAsync<Users>();
+            if (user == null)
+            {
+                await DisplayAlert("Error", "User  not found 2", "Okay");
+                return;
+            }
 
+            string userFullName = $"{user.FirstName} {user.LastName}";
+
+            GlobalVariables.email = iD;
+            GlobalVariables.Fullname = userFullName;
+            await DisplayAlert("Access Granted", "Logging in", "Okay");
+            await DisplayAlert("Access Granted", iD, "Okay");
+            Application.Current.MainPage = new UserDashboard(iD, userFullName);
         }
-
-        if (!a)
+        catch (FirebaseException ex)
         {
-
-            await DisplayAlert("Access Denied", "please try again!",
-                "Okay");
-
-
-            return;
+            await DisplayAlert("Firebase Error", $"An error occurred: {ex.Message}", "Okay");
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"An unexpected error occurred: {ex.Message}", "Okay");
         }
     }
 
@@ -53,5 +75,27 @@ public partial class Login : ContentPage
     private void Button_OnClicked(object? sender, EventArgs e)
     {
         Application.Current!.MainPage = new SignUp();
+    }
+
+
+    private async Task<string> GetUserByFirstNameAndLastName(string Username)
+    {
+        var users = await client.Child("Users").OnceAsync<Users>();
+
+        var userWithKey = users.FirstOrDefault(u => u.Object.Username.Equals(Username, StringComparison.OrdinalIgnoreCase));
+
+        return userWithKey?.Key;
+    }
+
+    //private void Button_Clicked(object sender, EventArgs e)
+    //{
+    //    Application.Current!.MainPage = new UserRegistration();
+
+    //}
+
+
+    private void Buttonback_OnClicked(object? sender, EventArgs e)
+    {
+        Application.Current!.MainPage = new chooseLogin();
     }
 }

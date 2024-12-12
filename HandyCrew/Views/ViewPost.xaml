@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HandyCrew.Views.ViewPost"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="ViewPost"
+    BackgroundColor="White">
+    <ScrollView>
+
+
+        <VerticalStackLayout VerticalOptions="CenterAndExpand">
+            <Image
+                Margin="0,-15"
+                HeightRequest="200"
+                Source="{Binding Image}" />
+            <Grid ColumnDefinitions="40,*,Auto">
+                <Image
+                    Grid.Column="0"
+                    Margin="20,-40,0,0"
+                    HeightRequest="40"
+                    Source="https://cdn2.iconfinder.com/data/icons/avatars-60/5985/24-Maid-64.png"
+                    WidthRequest="40" />
+                <StackLayout Grid.Column="1">
+                    <Label
+                        Margin="20,30,0,0"
+                        FontSize="20"
+                        Text="Obus"
+                        TextColor="Black" />
+                    <Frame
+                        Margin="-20,0,0,-0"
+                        Padding="0"
+                        BackgroundColor="Beige"
+                        CornerRadius="5"
+                        HeightRequest="25"
+                        WidthRequest="150">
+                        <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                            <Label
+                                Margin="5,3,5,0"
+                                FontSize="12"
+                                Text="Top Rated"
+                                TextColor="Orange" />
+                            <Image
+                                HeightRequest="14"
+                                Source="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/star-256.png"
+                                WidthRequest="14" />
+                            <Image
+                                HeightRequest="14"
+                                Source="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/star-256.png"
+                                WidthRequest="14" />
+                            <Image
+                                HeightRequest="14"
+                                Source="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/star-256.png"
+                                WidthRequest="14" />
+                            <Image
+                                HeightRequest="14"
+                                Source="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/star-256.png"
+                                WidthRequest="14" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+                <Picker
+                    Title="More"
+                    Grid.Column="2"
+                    Margin="30,50"
+                    ItemsSource="{Binding OptionsList}" />
+            </Grid>
+            <Frame Margin="0,-60,0,0" BackgroundColor="#0D9276">
+                <StackLayout Padding="0">
+                    <Label
+                        FontSize="24"
+                        Text="{Binding TitlePost}"
+                        TextColor="White" />
+                    <Label
+                        FontSize="14"
+                        Text="{Binding Description}"
+                        TextColor="White" />
+                    <StackLayout Orientation="Horizontal" />
+                </StackLayout>
+            </Frame>
+
+
+            <Frame BackgroundColor="#0D9276">
+                <StackLayout Padding="0">
+
+                    <Label
+                        Margin="0,0,0,20"
+                        FontSize="20"
+                        Text="Total Ratings"
+                        TextColor="White" />
+                    <HorizontalStackLayout Margin="-15,-5,0,0">
+
+                        <Image
+                            HeightRequest="20"
+                            Source="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/star-256.png"
+                            WidthRequest="50" />
+                        <Label
+                            Margin="-15,2,0,0"
+                            FontSize="16"
+                            Text="{Binding TotalRate}"
+                            VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="#0D9276">
+                <VerticalStackLayout>
+                    <HorizontalStackLayout>
+                        <Label
+                            Margin="0,-5,0,10"
+                            FontSize="20"
+                            Text="215 reviews"
+                            TextColor="White" />
+                        <Button
+                            Margin="340,-10,10,10"
+                            BackgroundColor="Black"
+                            CornerRadius="5"
+                            Text="See All"
+                            TextColor="Gray" />
+                    </HorizontalStackLayout>
+                    <Frame BackgroundColor="Black">
+                        <VerticalStackLayout>
+                            <HorizontalStackLayout>
+                                <Image
+                                    Grid.Column="0"
+                                    Margin="0,0,10,10"
+                                    HeightRequest="40"
+                                    Source="profile.png"
+                                    WidthRequest="40" />
+                                <VerticalStackLayout>
+                                    <Label
+                                        FontSize="20"
+                                        Text="Someone"
+                                        TextColor="White" />
+                                    <Label
+                                        FontSize="10"
+                                        Text="Homeowner"
+                                        TextColor="Gray" />
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                            <Label
+                                FontSize="14"
+                                Text="User review: Obus was able to deliver two quality logos, either of which would have been of the quality I..."
+                                TextColor="White" />
+                            <HorizontalStackLayout>
+                                <Image
+                                    Margin="-10,20,0,0"
+                                    HeightRequest="15"
+                                    Source="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/star-256.png"
+                                    WidthRequest="50" />
+                                <Label
+                                    Margin="-10,20,0,0"
+                                    FontSize="12"
+                                    Text="4.9"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    Margin="345,20,0,0"
+                                    FontSize="12"
+                                    Text="November 26, 2024"
+                                    TextColor="Gray"
+                                    VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
